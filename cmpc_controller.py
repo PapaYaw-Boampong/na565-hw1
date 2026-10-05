@@ -64,7 +64,7 @@ def LQR_Controller(x_bar, u_bar, x0, param):
 
     # define the parameters
     Q = np.eye(4)  * 1.
-    R = np.eye(2)  * 0.1
+    R = np.diag([0.1, 5.])   # steering weighted more: keeps steering where the linear model holds
     Pt = np.eye(4) * 10.
 
     # define the cost function
@@ -131,7 +131,7 @@ def CMPC_Controller(x_bar, u_bar, x0, param):
     
     # define the parameters
     Q = np.eye(4)  * 1.
-    R = np.eye(2)  * 0.1
+    R = np.diag([0.1, 10.])  # steering weighted more: keeps steering where the linear model holds
     Pt = np.eye(4) * 10.
 
     # define the cost function
