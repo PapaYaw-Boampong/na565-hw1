@@ -131,8 +131,8 @@ def CMPC_Controller(x_bar, u_bar, x0, param):
     
     # define the parameters
     Q = np.eye(4)  * 1.
-    R = np.diag([0.1, 10.])  # steering weighted more: keeps steering where the linear model holds
-    Pt = np.eye(4) * 10.
+    R = np.diag([0.1, 0.5])  # steering weighted more than acceleration
+    Pt = np.eye(4) * 200.   # strong pull back onto the path at the end of each plan
 
     # define the cost function
     # block-diagonal: Q on ds_0..ds_{N-1}, Pt on ds_N, R on every du_k
